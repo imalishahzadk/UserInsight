@@ -2,16 +2,17 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { CheckCircleIcon } from '@heroicons/react/24/solid';
 
 export default function CTASection() {
   return (
-    <section className=" py-20 px-6 md:px-12">
+    <section className="py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between rounded-3xl overflow-hidden shadow-2xl bg-black relative">
         
         {/* Left Abstract Circle Graphic */}
-        <div className="relative w-full lg:w-1/2 h-72 md:h-96 flex items-center justify-center bg-[#0f0f25]">
+        <div className="relative w-full lg:w-1/2 h-66 md:h-108 flex items-center justify-center bg-[#0f0f25]">
           <Image
-            src="/images/fida-circle.png" // Replace this with your actual asset path
+            src="/images/fida-circle.png"
             alt="Abstract graphic"
             width={300}
             height={300}
@@ -27,19 +28,37 @@ export default function CTASection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Learn More<br />about UserInsight
+            Ready to stop guessing?
           </motion.h2>
-          <p className="text-gray-400 mb-6 max-w-md">
-            Your analytics platform should serve you — not the other way around. We’re here to help you grow smarter.
-          </p>
-          <button className="bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] hover:bg-purple-700 text-white cursor-pointer font-semibold py-3 px-6 rounded-full transition duration-300">
-  Explore UserInsight →
-</button>
 
+          <p className="text-gray-400 mb-4 max-w-md">
+            Transparent usage-based pricing. No hidden fees. Cancel anytime.
+          </p>
+
+          <ul className="text-sm text-gray-400 mb-6 space-y-2">
+            {[
+              'Free white-glove setup',
+              'GDPR & CCPA Compliant',
+              '7-day free trial',
+              'Unlimited support',
+            ].map((item, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <CheckCircleIcon className="h-5 w-5 text-green-400" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap gap-4">
+            <button className="cursor-pointer bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] hover:opacity-90 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+              Get a Custom Quote
+            </button>
+            <button className="cursor-pointer border border-purple-400 text-purple-200 hover:bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] hover:text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+              Let’s Find Your Plan
+            </button>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-

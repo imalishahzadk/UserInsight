@@ -2,50 +2,49 @@
 
 import { motion } from 'framer-motion';
 import {
-  CursorArrowRaysIcon,
-  ChartBarIcon,
-  EnvelopeIcon,
-  SparklesIcon,
-  GlobeAltIcon,
-  RectangleStackIcon,
-  PuzzlePieceIcon,
+  EyeIcon,
+  MapPinIcon,
+  DocumentMagnifyingGlassIcon,
+  PlayCircleIcon,
+  BellAlertIcon,
+  ShieldCheckIcon,
 } from '@heroicons/react/24/outline';
 
 const features = [
   {
-    title: 'Real-time Behavior Analytics',
-    description: 'Track sessions, clicks, top pages, bounce rate, and more',
-    icon: <ChartBarIcon className="h-8 w-8 text-purple-300" />,
+    title: 'Recover Lost Leads',
+    description: 'With built-in popups and forms, capture visitors before they leave.',
+    icon: <EyeIcon className="h-8 w-8 text-purple-300" />,
     bg: 'bg-[#1e1e3a]',
   },
   {
-    title: 'Lead Capture Popups',
-    description: 'Convert visitors using built-in forms, no external tools needed',
-    icon: <EnvelopeIcon className="h-8 w-8 text-purple-300" />,
+    title: 'Geo Tracking',
+    description: 'Know where visitors come from, down to the city.',
+    icon: <MapPinIcon className="h-8 w-8 text-purple-300" />,
     bg: 'bg-[#2a2a45]',
   },
   {
-    title: 'Location & Device Insights',
-    description: 'See where users are from and what devices they use',
-    icon: <GlobeAltIcon className="h-8 w-8 text-purple-300" />,
+    title: 'Page Level Insights',
+    description: 'See which pages get attention and which ones don’t.',
+    icon: <DocumentMagnifyingGlassIcon className="h-8 w-8 text-purple-300" />,
     bg: 'bg-[#26263f]',
   },
   {
-    title: 'Clean Dashboard',
-    description: 'Understand your data at a glance',
-    icon: <RectangleStackIcon className="h-8 w-8 text-purple-300" />,
+    title: 'Live Session Views',
+    description: 'Replay what real users did on your site in real time.',
+    icon: <PlayCircleIcon className="h-8 w-8 text-purple-300" />,
     bg: 'bg-[#1c1c33]',
   },
   {
-    title: 'Simple Setup',
-    description: 'Just copy one script and you’re ready',
-    icon: <SparklesIcon className="h-8 w-8 text-purple-300" />,
+    title: 'Instant Lead Alerts',
+    description: 'Get notified the moment someone interacts with your site.',
+    icon: <BellAlertIcon className="h-8 w-8 text-purple-300" />,
     bg: 'bg-[#1f1f3d]',
   },
   {
-    title: 'Flexible Integrations',
-    description: 'Connect with CRMs, Zapier, and more',
-    icon: <PuzzlePieceIcon className="h-8 w-8 text-purple-300" />,
+    title: 'Privacy First',
+    description: 'GDPR & CCPA compliant — we never sell or share your data.',
+    icon: <ShieldCheckIcon className="h-8 w-8 text-purple-300" />,
     bg: 'bg-[#22223e]',
   },
 ];
@@ -78,13 +77,14 @@ export default function FeaturesSection() {
           transition={{ duration: 0.6 }}
           className="text-center lg:text-left space-y-6"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-purple-400">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Powerful Features for Smarter Decisions
           </h2>
           <p className="text-gray-300 text-md leading-relaxed max-w-md mx-auto lg:mx-0">
-            From user session tracking to lead generation — UserInsight equips you with everything you need to analyze, convert, and grow with confidence.
+            From session replays to geo tracking — UserInsight gives you everything you need to
+            analyze visitors, capture leads, and act fast.
           </p>
-          <button className="mt-4 border border-purple-500 text-purple-300 hover:text-white hover:bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] px-5 py-2 rounded-xl transition-all">
+          <button className="mt-4 border cursor-pointer border-purple-500 text-purple-300 hover:text-white hover:bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] px-5 py-2 rounded-xl transition-all">
             Explore All Features
           </button>
         </motion.div>

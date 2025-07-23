@@ -8,6 +8,7 @@ import LiveDemoSection from './LandingPage/LiveDemoSection';
 import PricingSection from './LandingPage/PricingSection';
 import ProblemSection from './LandingPage/ProblemSection';
 import TestimonialSection from './LandingPage/TestimonialSection';
+import VisualWorkflowSection from './LandingPage/Visual';
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0a0a23] to-[#1f1f3a] text-white">
@@ -18,7 +19,8 @@ export default function HomePage() {
       <FeaturesSection />
       <TestimonialSection/>
       <ClientLogosSection/>
-      <PricingSection/>
+      <VisualWorkflowSection/>
+      {/* <PricingSection/> */}
       <CTASection />
       <Footer/>
     </main>

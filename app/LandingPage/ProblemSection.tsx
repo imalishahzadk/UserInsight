@@ -1,28 +1,33 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BugAntIcon, EyeSlashIcon, PuzzlePieceIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  CursorArrowRaysIcon,
+  UserMinusIcon,
+  BeakerIcon,
+  BoltSlashIcon,
+} from '@heroicons/react/24/outline';
 
 const problems = [
   {
-    icon: <BugAntIcon className="h-8 w-8 text-purple-400" />,
-    title: 'You’re Blind to Traffic',
-    description: 'You’re spending money on ads, but don’t know who’s visiting, where they came from, or why they didn’t convert.',
+    icon: <CursorArrowRaysIcon className="h-8 w-8 text-purple-400" />,
+    title: 'Spent on Ads, No Idea if They Work',
+    description: 'You’re paying for clicks, but don’t know what’s converting.',
   },
   {
-    icon: <EyeSlashIcon className="h-8 w-8 text-purple-400" />,
-    title: 'No Behavioral Insights',
-    description: 'You’re relying on tools that only show numbers — not how users actually behave on your site.',
+    icon: <UserMinusIcon className="h-8 w-8 text-purple-400" />,
+    title: 'Lost Leads Without Even Realizing It',
+    description: 'Visitors come and go without a trace or a way to follow up.',
   },
   {
-    icon: <PuzzlePieceIcon className="h-8 w-8 text-purple-400" />,
-    title: 'Guesswork Over Strategy',
-    description: 'You’re guessing what works instead of knowing with clarity.',
+    icon: <BeakerIcon className="h-8 w-8 text-purple-400" />,
+    title: 'Analytics That Feel Like Rocket Science',
+    description: 'Confusing charts and reports that don’t lead to real action.',
   },
   {
-    icon: <XMarkIcon className="h-8 w-8 text-purple-400" />,
-    title: 'Leads Slip Away',
-    description: 'You’re missing qualified leads every day without even realizing it.',
+    icon: <BoltSlashIcon className="h-8 w-8 text-purple-400" />,
+    title: 'No Clear Next Step',
+    description: 'You have data, but don’t know what to actually do with it.',
   },
 ];
 

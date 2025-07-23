@@ -85,7 +85,7 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-gradient-to-br from-[#0a0a23] to-[#1f1f3a] text-white">
+    <section className="py-24 px-6 md:px-12 text-white">
       {/* Top Testimonial Swiper with fade + pagination */}
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}

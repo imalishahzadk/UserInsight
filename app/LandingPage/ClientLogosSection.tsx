@@ -2,6 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import CountUp from 'react-countup';
+import { useInView } from 'react-intersection-observer';
+import { useState, useEffect } from 'react';
 
 const clientLogos = [
   {
@@ -45,6 +48,13 @@ const clientLogos = [
 ];
 
 export default function ClientLogosSection() {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    if (inView) setStartCount(true);
+  }, [inView]);
+
   return (
     <section className="py-24 px-6 md:px-12 text-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
@@ -88,18 +98,27 @@ export default function ClientLogosSection() {
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="max-w-5xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-3 text-center gap-8">
+      {/* Stats Section */}
+      <div
+        ref={ref}
+        className="max-w-5xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-3 text-center gap-8"
+      >
         <div>
-          <h3 className="text-3xl font-bold text-purple-400">2M+</h3>
+          <h3 className="text-3xl font-bold bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] bg-clip-text text-transparent">
+            {startCount && <CountUp end={2000000} duration={2.5} separator="," />}+
+          </h3>
           <p className="text-sm text-gray-300 mt-1">Pageviews Tracked</p>
         </div>
         <div>
-          <h3 className="text-3xl font-bold text-purple-400">100K+</h3>
+          <h3 className="text-3xl font-bold bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] bg-clip-text text-transparent">
+            {startCount && <CountUp end={100000} duration={2.5} separator="," />}+
+          </h3>
           <p className="text-sm text-gray-300 mt-1">Leads Captured</p>
         </div>
         <div>
-          <h3 className="text-3xl font-bold text-purple-400">400+</h3>
+          <h3 className="text-3xl font-bold bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] bg-clip-text text-transparent">
+            {startCount && <CountUp end={400} duration={2.5} />}+
+          </h3>
           <p className="text-sm text-gray-300 mt-1">Active Clients</p>
         </div>
       </div>
