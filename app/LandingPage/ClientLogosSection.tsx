@@ -68,7 +68,7 @@ export default function ClientLogosSection() {
             transition={{ delay: clientLogos.length * 0.1 }}
           >
             <h3 className="text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] bg-clip-text text-transparent text-center">
-              And Many More...
+              + More
             </h3>
           </motion.div>
         </div>

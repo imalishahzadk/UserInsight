@@ -13,7 +13,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 const testimonials = [
   {
     name: 'Mr Horton',
-    role: 'Product Manager',
+    role: '',
     rating: 5,
     text: 'UserInsight helped us visualize where customers drop off. Clean interface, very insightful.',
   },
@@ -25,31 +25,31 @@ const testimonials = [
   },
   {
     name: 'Joseph Frament',
-    role: 'Ecommerce Strategist',
+    role: '',
     rating: 5,
     text: 'This tool gave our conversion rates a serious boost. Very impressed with the features.',
   },
   {
     name: 'Marcus Lay',
-    role: 'Marketing Director',
+    role: '',
     rating: 5,
     text: 'UserInsight gives us the full picture of user behavior—no code setup, just results.',
   },
   {
     name: 'Wilfred Jr',
-    role: 'Analytics Consultant',
+    role: '',
     rating: 5,
     text: 'The live insights helped us make real-time changes to our funnel. Amazing tool!',
   },
   {
     name: 'Hunar Muhammad',
-    role: 'Growth Hacker',
+    role: '',
     rating: 5,
     text: 'Highly recommend UserInsight for any startup looking to understand their traffic fast.',
   },
   {
     name: 'AbdulKadir Jeilan',
-    role: 'Conversion Specialist',
+    role: '',
     rating: 5,
     text: 'Finally, a tool that doesn’t require a dev to implement and delivers actionable data.',
   },

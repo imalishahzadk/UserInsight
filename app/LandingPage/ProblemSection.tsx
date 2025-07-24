@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, Variants } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import {
   CursorArrowRaysIcon,
   UserMinusIcon,
@@ -31,54 +31,44 @@ const problems = [
   },
 ];
 
-// Type-safe animation variants
-const containerVariants: Variants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-    },
-  },
-};
-
 export default function ProblemSection() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const trigger = document.getElementById('problem-section');
+      if (trigger) {
+        const top = trigger.getBoundingClientRect().top;
+        if (top < window.innerHeight * 0.8) {
+          setShow(true);
+          window.removeEventListener('scroll', onScroll);
+        }
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <section className="py-10 px-6 md:px-12 text-white">
+    <section id="problem-section" className="py-24 px-6 md:px-12 text-white">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
+        <h2
           className="text-3xl sm:text-4xl font-bold text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          style={{
+            opacity: show ? 1 : 0,
+            transform: show ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.6s ease',
+          }}
         >
           The Problems You're Facing
-        </motion.h2>
+        </h2>
 
-        <motion.div
-          className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
           {problems.map((problem, index) => (
-            <motion.div
+            <div
               key={index}
               className="bg-[#13132b] border border-[#292b45] rounded-xl p-6 hover:shadow-lg transition duration-300"
-              variants={cardVariants}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-[#1e1e3a] p-3 rounded-full">
@@ -89,19 +79,20 @@ export default function ProblemSection() {
                 </h3>
               </div>
               <p className="text-sm text-gray-300">{problem.description}</p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.p
+        <p
           className="mt-14 text-center text-xl bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] bg-clip-text text-transparent font-semibold"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          viewport={{ once: true }}
+          style={{
+            opacity: show ? 1 : 0,
+            transform: show ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 0.6s ease 0.3s',
+          }}
         >
           UserInsight solves this instantly.
-        </motion.p>
+        </p>
       </div>
     </section>
   );
