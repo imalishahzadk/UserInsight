@@ -52,8 +52,8 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
           <Link href="/" className="hover:text-white transition">Home</Link>
-          <Link href="/pricing" className="hover:text-white transition">Pricing</Link>
-          <Link href="/about" className="hover:text-white transition">About</Link>
+          {/* <Link href="/pricing" className="hover:text-white transition">Pricing</Link> */}
+          {/* <Link href="/about" className="hover:text-white transition">About</Link> */}
           <Link href={CLIENT_LOGIN_ROUTE}>
             <button className="ml-4 cursor-pointer bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-all">
               Login
@@ -78,8 +78,8 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-gray-300 backdrop-blur bg-[#0a0a1f]/60">
           <Link href="/" className="block hover:text-white transition">Home</Link>
-          <Link href="/pricing" className="block hover:text-white transition">Pricing</Link>
-          <Link href="/about" className="block hover:text-white transition">About</Link>
+          {/* <Link href="/pricing" className="block hover:text-white transition">Pricing</Link> */}
+          {/* <Link href="/about" className="block hover:text-white transition">About</Link> */}
           <Link href={CLIENT_LOGIN_ROUTE} className="block">
             <button className="mt-2 w-full bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-all">
               Login

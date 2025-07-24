@@ -1,5 +1,11 @@
 "use client";
+// app/layout.tsx or _app.tsx
+// import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import { useEffect } from 'react';
 
+
+        
 // Client component - no Metadata
 import "./globals.css";
 import ThemeRegistry from "./components/ThemeRegistry";
@@ -11,6 +17,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+
+  // useEffect(() => {
+  //   AOS.init({
+  //     once: false, 
+  //     duration: 1200,
+  //   });
+  // }, []);
+
   return (
     <html lang="en">
       <body style={{ margin: 0, padding: 0 }}>

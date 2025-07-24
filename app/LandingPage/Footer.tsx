@@ -5,7 +5,7 @@ import { Mail, Facebook, Linkedin, Rocket, ShieldCheck, Users } from 'lucide-rea
 
 export default function Footer() {
   return (
-    <footer className="text-white px-6 md:px-12 py-20">
+    <footer className="text-white px-6 md:px-12 py-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Brand + Trust */}
         <div>
@@ -109,7 +109,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Line */}
-      <div className="mt-12 text-center text-xs text-gray-500 space-y-1">
+      <div className="text-center text-xs text-gray-500 space-y-1">
         <p>© {new Date().getFullYear()} UserInsight. All rights reserved.</p>
         <p>
           Powered by{' '}

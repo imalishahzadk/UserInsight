@@ -6,7 +6,7 @@ import { CLIENT_LOGIN_ROUTE } from '@/core/routes';
 
 export default function HeroSection() {
   return (
-    <section className="text-white py-20 px-6 md:px-12 mt-[5%]">
+    <section className="text-white py-14 px-6 md:px-12 mt-[5%]">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12">
         {/* Text Content */}
         <motion.div

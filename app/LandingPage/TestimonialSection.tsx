@@ -7,92 +7,94 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 
 const testimonials = [
   {
-    name: 'Fatima R.',
-    role: 'Marketing Manager, BrightWeb Agency',
+    name: 'Mr Horton',
+    role: 'Product Manager',
     rating: 5,
-    text: 'UserInsight showed us exactly where users were dropping off and helped us recover over 30% lost leads in the first week.',
-    avatar: '/avatars/fatima.jpeg',
+    text: 'UserInsight helped us visualize where customers drop off. Clean interface, very insightful.',
   },
   {
-    name: 'John D.',
-    role: 'Growth Marketer',
+    name: 'Matt Powell',
+    role: 'UX Lead',
     rating: 5,
-    text: 'UserInsight makes it insanely simple to understand visitor behavior.',
-    avatar: '/avatars/john.jpeg',
+    text: 'The session replays and behavior heatmaps helped us pinpoint major UX issues easily.',
   },
   {
-    name: 'Lina M.',
-    role: 'Founder, SaaSly',
+    name: 'Joseph Frament',
+    role: 'Ecommerce Strategist',
     rating: 5,
-    text: 'We gained clear insight into what pages drive conversions.',
-    avatar: '/avatars/lina.jpeg',
+    text: 'This tool gave our conversion rates a serious boost. Very impressed with the features.',
   },
   {
-    name: 'Adeel K.',
-    role: 'CRO Consultant',
+    name: 'Marcus Lay',
+    role: 'Marketing Director',
     rating: 5,
-    text: 'The clean dashboard and setup made onboarding painless.',
-    avatar: '/avatars/adeel.jpeg',
+    text: 'UserInsight gives us the full picture of user behavior—no code setup, just results.',
   },
   {
-    name: 'Karla G.',
-    role: 'CMO, Shoply',
+    name: 'Wilfred Jr',
+    role: 'Analytics Consultant',
     rating: 5,
-    text: 'In 1 week, we captured 300+ leads with their popup tools.',
-    avatar: '/avatars/karla.jpeg',
+    text: 'The live insights helped us make real-time changes to our funnel. Amazing tool!',
   },
   {
-    name: 'Alex N.',
-    role: 'Data Analyst',
+    name: 'Hunar Muhammad',
+    role: 'Growth Hacker',
     rating: 5,
-    text: 'No coding needed. Just plugged in and saw results instantly.',
-    avatar: '/avatars/alex.jpeg',
+    text: 'Highly recommend UserInsight for any startup looking to understand their traffic fast.',
   },
   {
-    name: 'Sasha T.',
-    role: 'eCommerce Manager',
+    name: 'AbdulKadir Jeilan',
+    role: 'Conversion Specialist',
     rating: 5,
-    text: 'Finally, a product that’s made for marketers not just devs.',
-    avatar: '/avatars/sasha.jpeg',
-  },
-  {
-    name: 'Bryce W.',
-    role: 'Digital Lead, Launchly',
-    rating: 5,
-    text: 'The location/device data helped us segment much better.',
-    avatar: '/avatars/bryce.jpeg',
-  },
-  {
-    name: 'Nashit R.',
-    role: 'Startup Founder',
-    rating: 5,
-    text: 'I recommend it to every founder I mentor. Just works.',
-    avatar: '/avatars/nashit.jpeg',
-  },
-  {
-    name: 'Kim A.',
-    role: 'Agency Strategist',
-    rating: 5,
-    text: 'We show this tool off to every client during onboarding.',
-    avatar: '/avatars/kim.jpeg',
+    text: 'Finally, a tool that doesn’t require a dev to implement and delivers actionable data.',
   },
 ];
 
+// Reusable initials avatar
+const InitialAvatar = ({ name }: { name: string }) => {
+  const initials = name
+    .split(' ')
+    .map((n) => n[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+
+  const bgColors = ['bg-purple-600', 'bg-pink-600', 'bg-blue-600', 'bg-yellow-600', 'bg-green-600'];
+  const color = bgColors[name.length % bgColors.length];
+
+  return (
+    <div className={`w-10 h-10 flex items-center justify-center rounded-full text-white font-semibold text-sm ${color}`}>
+      {initials}
+    </div>
+  );
+};
+
 export default function TestimonialSection() {
   return (
-    <section className="py-24 px-6 md:px-12 text-white">
-      {/* Top Testimonial Swiper with fade + pagination */}
+    <section className="py-14 px-6 md:px-12 text-white">
+      {/* Section Heading */}
+      <motion.h2
+        className="text-3xl sm:text-4xl font-bold text-center mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        What People Are Saying About{' '}
+        <span className="bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] bg-clip-text text-transparent">
+          UserInsight
+        </span>
+      </motion.h2>
+
+      {/* Top Testimonial Swiper */}
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
         effect="fade"
         loop={true}
         pagination={{
@@ -102,7 +104,7 @@ export default function TestimonialSection() {
         }}
         className="mb-16 max-w-5xl mx-auto"
       >
-        {[testimonials[0], testimonials[1], testimonials[2]].map((t, i) => (
+        {testimonials.slice(0, 3).map((t, i) => (
           <SwiperSlide key={i}>
             <div className="bg-[#26263f] rounded-xl px-8 py-10 relative shadow-lg min-h-[200px]">
               <p className="text-2xl sm:text-3xl font-light leading-snug">
@@ -114,37 +116,26 @@ export default function TestimonialSection() {
                   <p className="uppercase text-sm font-bold text-white">{t.name}</p>
                   <div className="w-12 h-1 bg-purple-400 mt-1 rounded-full"></div>
                 </div>
-                <div className="w-8 h-8 min-w-[32px] min-h-[32px] rounded-full overflow-hidden bg-gray-800">
-  <Image
-    src={t.avatar}
-    alt={t.name}
-    width={32}
-    height={32}
-    className="w-full h-full object-cover"
-  />
-</div>
-
-
+                <InitialAvatar name={t.name} />
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Pagination Dots Centered */}
+      {/* Pagination Dots */}
       <div className="flex justify-center mt-4">
         <div className="swiper-pagination !static !relative"></div>
       </div>
 
-      {/* Bottom Testimonial Cards Carousel */}
+      {/* Bottom Carousel */}
       <div className="relative max-w-6xl mx-auto mt-12">
-        {/* Left Arrow */}
+        {/* Arrows */}
         <div className="absolute -left-16 top-1/2 transform -translate-y-1/2 z-10">
           <button className="swiper-button-prev w-6 h-6 bg-[#2f2f4f] rounded-full text-purple-300 hover:bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] transition flex items-center justify-center absolute transform -translate-y-1/2 z-10">
             <ArrowLeftIcon className="w-2 h-2" />
           </button>
         </div>
-        {/* Right Arrow */}
         <div className="absolute -right-16 top-1/2 transform -translate-y-1/2 z-10">
           <button className="swiper-button-next w-6 h-6 bg-[#2f2f4f] rounded-full text-purple-300 hover:bg-gradient-to-r from-[#7367f0] via-[#9d80f5] to-[#ce9ffc] transition flex items-center justify-center absolute transform -translate-y-1/2 z-10">
             <ArrowRightIcon className="w-2 h-2" />
@@ -157,10 +148,7 @@ export default function TestimonialSection() {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           }}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           loop={true}
           spaceBetween={24}
           breakpoints={{
@@ -177,16 +165,7 @@ export default function TestimonialSection() {
                 <div className="text-yellow-400 mb-2">{"★".repeat(t.rating)}</div>
                 <p className="text-gray-300 text-sm mb-4">{t.text}</p>
                 <div className="flex items-center gap-3 mt-auto">
-                <div className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full overflow-hidden ring-2 ring-purple-400 bg-gray-800">
-  <Image
-    src={t.avatar}
-    alt={t.name}
-    width={40}
-    height={40}
-    className="w-full h-full object-cover"
-  />
-</div>
-
+                  <InitialAvatar name={t.name} />
                   <div>
                     <p className="text-sm text-gray-200">{t.name}</p>
                     <p className="text-xs text-gray-400">{t.role}</p>

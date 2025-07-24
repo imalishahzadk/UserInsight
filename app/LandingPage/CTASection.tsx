@@ -6,7 +6,7 @@ import { CheckCircleIcon } from '@heroicons/react/24/solid';
 
 export default function CTASection() {
   return (
-    <section className="py-20 px-6 md:px-12">
+    <section className="py-10 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between rounded-3xl overflow-hidden shadow-2xl bg-black relative">
         
         {/* Left Abstract Circle Graphic */}

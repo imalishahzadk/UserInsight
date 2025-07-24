@@ -23,7 +23,7 @@ const steps = [
 
 export default function VisualWorkflowSection() {
   return (
-    <section className="py-24 px-6 md:px-12 text-white">
+    <section className="py-10 px-6 md:px-12 text-white">
       <div className="max-w-7xl mx-auto text-center">
         <motion.h2
           className="text-3xl sm:text-4xl font-bold text-white mb-4"
